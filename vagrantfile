@@ -1,0 +1,13 @@
+Vagrant.configure("2") do |config|
+
+    config.vm.provider :virtualbox do |v|
+      v.memory = 10240
+      v.customize ["modifyvm", :id, "--cpuexecutioncap", "90"]
+      v.cpus = 2
+    end
+  
+    config.vm.define "Centos" do |centos|
+      centos.vm.box = "centos/7"
+      centos.vm.hostname = "Centos"
+    end
+  end
